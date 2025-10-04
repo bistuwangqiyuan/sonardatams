@@ -1,0 +1,212 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Header } from '@/components/layout/Header';
+---
+
+<Layout title="超声数据管理系统 - 首页">
+  <Header currentPath="/" client:load />
+  
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 py-20">
+      <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+            <span class="text-gradient">超声数据</span><br />
+            <span class="text-white">实验数据管理系统</span>
+          </h1>
+          <p class="text-xl text-gray-300 mb-8 animate-slide-in">
+            基于国际标准的现代化、工业级超声检测数据管理平台<br />
+            ISO 16810 • ASTM E2700 • ISO 13588 • EN 16018
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 animate-slide-in">
+            <a href="/dashboard" class="btn btn-primary text-lg px-8 py-3">
+              📊 查看数据大屏
+            </a>
+            <a href="/files" class="btn btn-secondary text-lg px-8 py-3">
+              📁 开始管理数据
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-primary-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">核心功能</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Feature 1 -->
+          <div class="card group hover:scale-105 transition-transform duration-300">
+            <div class="text-4xl mb-4">📊</div>
+            <h3 class="text-xl font-bold mb-2 text-white">数据展示大屏</h3>
+            <p class="text-gray-400">实时监控检测数据，多维度统计分析，支持4K大屏展示</p>
+            <a href="/dashboard" class="mt-4 inline-flex items-center text-secondary hover:text-secondary-400">
+              了解更多 →
+            </a>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="card group hover:scale-105 transition-transform duration-300">
+            <div class="text-4xl mb-4">📁</div>
+            <h3 class="text-xl font-bold mb-2 text-white">数据文件管理</h3>
+            <p class="text-gray-400">CSV文件上传解析，批量处理，完整元数据管理</p>
+            <a href="/files" class="mt-4 inline-flex items-center text-secondary hover:text-secondary-400">
+              了解更多 →
+            </a>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="card group hover:scale-105 transition-transform duration-300">
+            <div class="text-4xl mb-4">🖼️</div>
+            <h3 class="text-xl font-bold mb-2 text-white">超声图展示</h3>
+            <p class="text-gray-400">A/B/C/S扫描多种模式，交互式图像操作，专业可视化</p>
+            <a href="/ultrasonic" class="mt-4 inline-flex items-center text-secondary hover:text-secondary-400">
+              了解更多 →
+            </a>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="card group hover:scale-105 transition-transform duration-300">
+            <div class="text-4xl mb-4">🔬</div>
+            <h3 class="text-xl font-bold mb-2 text-white">试验管理</h3>
+            <p class="text-gray-400">标准化试验流程，自动报告生成，质量评级系统</p>
+            <a href="/experiments" class="mt-4 inline-flex items-center text-secondary hover:text-secondary-400">
+              了解更多 →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Standards Section -->
+    <section class="py-20 bg-primary-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">基于国际标准</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div class="text-center p-6 bg-primary-800 rounded-lg">
+            <h3 class="text-lg font-bold mb-2 text-secondary">ISO 16810</h3>
+            <p class="text-sm text-gray-400">超声相控阵检测技术规范</p>
+          </div>
+          <div class="text-center p-6 bg-primary-800 rounded-lg">
+            <h3 class="text-lg font-bold mb-2 text-secondary">ASTM E2700</h3>
+            <p class="text-sm text-gray-400">相控阵超声检测实践指南</p>
+          </div>
+          <div class="text-center p-6 bg-primary-800 rounded-lg">
+            <h3 class="text-lg font-bold mb-2 text-secondary">ISO 13588</h3>
+            <p class="text-sm text-gray-400">焊缝相控阵超声检测</p>
+          </div>
+          <div class="text-center p-6 bg-primary-800 rounded-lg">
+            <h3 class="text-lg font-bold mb-2 text-secondary">EN 16018</h3>
+            <p class="text-sm text-gray-400">相控阵超声检测方法</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detection Types Section -->
+    <section class="py-20 bg-primary-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">检测类型</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div class="card">
+            <h3 class="text-xl font-bold mb-4 text-secondary">焊缝检测</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>✓ 对接焊缝检测</li>
+              <li>✓ 角焊缝检测</li>
+              <li>✓ T型焊缝检测</li>
+              <li>✓ 压力容器焊缝</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="text-xl font-bold mb-4 text-secondary">分层检测</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>✓ 单层材料检测</li>
+              <li>✓ 双层材料检测</li>
+              <li>✓ 多层材料检测</li>
+              <li>✓ 复合材料分层</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="text-xl font-bold mb-4 text-secondary">特殊检测</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>✓ 斜坡结构检测</li>
+              <li>✓ 曲面检测</li>
+              <li>✓ 复杂形状检测</li>
+              <li>✓ 定制化检测</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-primary-900">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
+          <div>
+            <div class="text-4xl font-bold text-secondary mb-2">ISO</div>
+            <p class="text-gray-400">国际标准</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-secondary mb-2">896</div>
+            <p class="text-gray-400">位置数据点</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-secondary mb-2">4K</div>
+            <p class="text-gray-400">大屏支持</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-secondary mb-2">99.9%</div>
+            <p class="text-gray-400">数据可靠性</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-secondary via-secondary-600 to-accent">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-6 text-white">立即开始使用</h2>
+        <p class="text-xl text-white/90 mb-8">
+          专业的超声检测数据管理，从这里开始
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/files" class="btn bg-white text-secondary hover:bg-gray-100 text-lg px-8 py-3">
+            📁 上传数据文件
+          </a>
+          <a href="/experiments" class="btn bg-primary-900 text-white hover:bg-primary-800 text-lg px-8 py-3">
+            🔬 创建新试验
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary-900 border-t border-primary-700 py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm mb-4 md:mb-0">
+          © 2025 超声数据管理系统. All rights reserved.
+        </p>
+        <div class="flex space-x-6 text-sm text-gray-400">
+          <a href="#" class="hover:text-secondary">关于我们</a>
+          <a href="#" class="hover:text-secondary">使用文档</a>
+          <a href="#" class="hover:text-secondary">联系支持</a>
+          <a href="#" class="hover:text-secondary">隐私政策</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .bg-grid-pattern {
+    background-image: linear-gradient(rgba(0, 168, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 168, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+</style>
+

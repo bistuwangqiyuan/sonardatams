@@ -1,0 +1,213 @@
+---
+/**
+ * 试验管理页面
+ */
+import Layout from '@/layouts/Layout.astro';
+import { Header } from '@/components/layout/Header';
+---
+
+<Layout title="试验管理 - 超声数据管理系统">
+  <Header currentPath="/experiments" client:load />
+  
+  <main class="min-h-screen bg-primary-900 py-8">
+    <div class="container mx-auto px-4">
+      <!-- Page Header -->
+      <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center">
+        <div>
+          <h1 class="text-3xl font-bold text-white mb-2">试验管理</h1>
+          <p class="text-gray-400">标准化检测试验流程，自动报告生成</p>
+        </div>
+        <button class="btn btn-primary mt-4 md:mt-0">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+          </svg>
+          创建新试验
+        </button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="mb-6">
+        <div class="border-b border-primary-700">
+          <nav class="-mb-px flex space-x-8">
+            <button class="border-b-2 border-secondary py-4 px-1 text-sm font-medium text-secondary">
+              全部试验
+            </button>
+            <button class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-400 hover:text-white hover:border-gray-300">
+              进行中
+            </button>
+            <button class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-400 hover:text-white hover:border-gray-300">
+              已完成
+            </button>
+            <button class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-400 hover:text-white hover:border-gray-300">
+              失败
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Experiments Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Experiment Card 1 -->
+        <div class="card hover:scale-105 transition-transform">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-info">焊缝检测</span>
+            <span class="badge badge-success">已完成</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">压力容器焊缝检测试验</h3>
+          <p class="text-sm text-gray-400 mb-4">基于 ISO 13588 标准的对接焊缝检测</p>
+          
+          <div class="space-y-2 text-sm mb-4">
+            <div class="flex justify-between">
+              <span class="text-gray-400">操作员:</span>
+              <span class="text-white">张工程师</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">开始时间:</span>
+              <span class="text-white">2025-10-03 09:00</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">完成时间:</span>
+              <span class="text-white">2025-10-03 15:30</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">缺陷数:</span>
+              <span class="text-warning">5</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">质量等级:</span>
+              <span class="text-success font-bold">A级</span>
+            </div>
+          </div>
+
+          <div class="flex space-x-2">
+            <button class="btn btn-secondary flex-1">
+              查看详情
+            </button>
+            <button class="btn bg-primary-700 hover:bg-primary-600 flex-1">
+              下载报告
+            </button>
+          </div>
+        </div>
+
+        <!-- Experiment Card 2 -->
+        <div class="card hover:scale-105 transition-transform">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-info">分层检测</span>
+            <span class="badge badge-warning">进行中</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">复合材料分层检测试验</h3>
+          <p class="text-sm text-gray-400 mb-4">基于 ASTM E2700 标准的多层材料检测</p>
+          
+          <div class="space-y-2 text-sm mb-4">
+            <div class="flex justify-between">
+              <span class="text-gray-400">操作员:</span>
+              <span class="text-white">李工程师</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">开始时间:</span>
+              <span class="text-white">2025-10-03 14:00</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">进度:</span>
+              <div class="flex-1 ml-2">
+                <div class="h-2 bg-primary-700 rounded-full">
+                  <div class="h-full w-2/3 bg-secondary rounded-full"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">预计完成:</span>
+              <span class="text-white">18:30</span>
+            </div>
+          </div>
+
+          <div class="flex space-x-2">
+            <button class="btn btn-primary flex-1">
+              实时监控
+            </button>
+            <button class="btn btn-danger flex-1">
+              停止试验
+            </button>
+          </div>
+        </div>
+
+        <!-- Experiment Card 3 -->
+        <div class="card hover:scale-105 transition-transform">
+          <div class="flex items-center justify-between mb-4">
+            <span class="badge badge-info">特殊检测</span>
+            <span class="badge badge-success">已完成</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">斜坡结构完整性检测</h3>
+          <p class="text-sm text-gray-400 mb-4">特殊几何形状的超声检测试验</p>
+          
+          <div class="space-y-2 text-sm mb-4">
+            <div class="flex justify-between">
+              <span class="text-gray-400">操作员:</span>
+              <span class="text-white">王工程师</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">开始时间:</span>
+              <span class="text-white">2025-10-02 10:00</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">完成时间:</span>
+              <span class="text-white">2025-10-02 16:45</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">缺陷数:</span>
+              <span class="text-warning">8</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">质量等级:</span>
+              <span class="text-success font-bold">B级</span>
+            </div>
+          </div>
+
+          <div class="flex space-x-2">
+            <button class="btn btn-secondary flex-1">
+              查看详情
+            </button>
+            <button class="btn bg-primary-700 hover:bg-primary-600 flex-1">
+              下载报告
+            </button>
+          </div>
+        </div>
+
+        <!-- New Experiment Card (Create) -->
+        <div class="card border-2 border-dashed border-primary-600 hover:border-secondary transition-colors cursor-pointer">
+          <div class="h-full flex flex-col items-center justify-center py-12">
+            <svg class="w-16 h-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+            <h3 class="text-lg font-bold text-white mb-2">创建新试验</h3>
+            <p class="text-sm text-gray-400 text-center">选择试验类型，开始新的检测流程</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Standards Reference -->
+      <div class="card mt-8">
+        <h3 class="text-xl font-bold text-white mb-4">试验标准参考</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="p-4 bg-primary-700 rounded-lg">
+            <h4 class="font-bold text-secondary mb-2">ISO 13588</h4>
+            <p class="text-sm text-gray-400">超声相控阵焊缝检测技术规范</p>
+          </div>
+          <div class="p-4 bg-primary-700 rounded-lg">
+            <h4 class="font-bold text-secondary mb-2">ASTM E2700</h4>
+            <p class="text-sm text-gray-400">相控阵超声检测实践标准指南</p>
+          </div>
+          <div class="p-4 bg-primary-700 rounded-lg">
+            <h4 class="font-bold text-secondary mb-2">EN 16018</h4>
+            <p class="text-sm text-gray-400">相控阵超声检测技术应用指南</p>
+          </div>
+          <div class="p-4 bg-primary-700 rounded-lg">
+            <h4 class="font-bold text-secondary mb-2">ISO 16810</h4>
+            <p class="text-sm text-gray-400">超声相控阵检测技术规范</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+

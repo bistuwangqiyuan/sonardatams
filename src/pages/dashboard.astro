@@ -1,0 +1,279 @@
+---
+/**
+ * 数据展示大屏页面
+ */
+import Layout from '@/layouts/Layout.astro';
+import { Header } from '@/components/layout/Header';
+---
+
+<Layout title="数据大屏 - 超声数据管理系统">
+  <Header currentPath="/dashboard" client:load />
+  
+  <main class="min-h-screen bg-primary-900 py-8">
+    <div class="container mx-auto px-4">
+      <!-- Page Header -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-white mb-2">数据展示大屏</h1>
+        <p class="text-gray-400">实时监控检测数据，多维度统计分析</p>
+      </div>
+
+      <!-- Key Metrics -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <!-- Metric Card 1 -->
+        <div class="card">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-400 text-sm mb-1">总检测文件</p>
+              <p class="text-3xl font-bold text-white">1,234</p>
+              <p class="text-success text-sm mt-1">↑ 12.5% 本月</p>
+            </div>
+            <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center">
+              <span class="text-3xl">📁</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Card 2 -->
+        <div class="card">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-400 text-sm mb-1">今日检测</p>
+              <p class="text-3xl font-bold text-white">45</p>
+              <p class="text-success text-sm mt-1">实时更新</p>
+            </div>
+            <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center">
+              <span class="text-3xl">📊</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Card 3 -->
+        <div class="card">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-400 text-sm mb-1">缺陷检出</p>
+              <p class="text-3xl font-bold text-white">89</p>
+              <p class="text-warning text-sm mt-1">需关注</p>
+            </div>
+            <div class="w-16 h-16 bg-warning/20 rounded-full flex items-center justify-center">
+              <span class="text-3xl">⚠️</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Card 4 -->
+        <div class="card">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-400 text-sm mb-1">合格率</p>
+              <p class="text-3xl font-bold text-white">95.6%</p>
+              <p class="text-success text-sm mt-1">↑ 2.3%</p>
+            </div>
+            <div class="w-16 h-16 bg-success/20 rounded-full flex items-center justify-center">
+              <span class="text-3xl">✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row 1 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <!-- Detection Type Distribution -->
+        <div class="card">
+          <h3 class="text-xl font-bold text-white mb-4">检测类型分布</h3>
+          <div id="detectionTypeChart" class="h-80"></div>
+        </div>
+
+        <!-- Quality Grade Distribution -->
+        <div class="card">
+          <h3 class="text-xl font-bold text-white mb-4">质量等级分布</h3>
+          <div id="qualityGradeChart" class="h-80"></div>
+        </div>
+      </div>
+
+      <!-- Charts Row 2 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <!-- Trend Chart -->
+        <div class="card">
+          <h3 class="text-xl font-bold text-white mb-4">检测趋势（近30天）</h3>
+          <div id="trendChart" class="h-80"></div>
+        </div>
+
+        <!-- Defect Statistics -->
+        <div class="card">
+          <h3 class="text-xl font-bold text-white mb-4">缺陷统计</h3>
+          <div id="defectChart" class="h-80"></div>
+        </div>
+      </div>
+
+      <!-- Recent Files Table -->
+      <div class="card">
+        <h3 class="text-xl font-bold text-white mb-4">最近检测文件</h3>
+        <div class="overflow-x-auto">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>文件名</th>
+                <th>检测类型</th>
+                <th>状态</th>
+                <th>缺陷数</th>
+                <th>质量等级</th>
+                <th>上传时间</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-medium">1-焊缝.csv</td>
+                <td><span class="badge badge-info">焊缝检测</span></td>
+                <td><span class="badge badge-success">已处理</span></td>
+                <td>5</td>
+                <td><span class="badge badge-success">A级</span></td>
+                <td>2小时前</td>
+              </tr>
+              <tr>
+                <td class="font-medium">2-双层-3.csv</td>
+                <td><span class="badge badge-info">分层检测</span></td>
+                <td><span class="badge badge-success">已处理</span></td>
+                <td>3</td>
+                <td><span class="badge badge-success">B级</span></td>
+                <td>4小时前</td>
+              </tr>
+              <tr>
+                <td class="font-medium">2-斜坡.csv</td>
+                <td><span class="badge badge-info">斜坡检测</span></td>
+                <td><span class="badge badge-success">已处理</span></td>
+                <td>8</td>
+                <td><span class="badge badge-warning">C级</span></td>
+                <td>6小时前</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // 模拟图表数据（实际应从API获取）
+  import * as echarts from 'echarts';
+
+  // 检测类型分布
+  const detectionTypeChart = echarts.init(document.getElementById('detectionTypeChart'));
+  detectionTypeChart.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'item' },
+    legend: {
+      orient: 'vertical',
+      left: 'left',
+      textStyle: { color: '#9ca3af' }
+    },
+    series: [{
+      type: 'pie',
+      radius: ['40%', '70%'],
+      data: [
+        { value: 548, name: '焊缝检测' },
+        { value: 335, name: '分层检测' },
+        { value: 234, name: '斜坡检测' },
+        { value: 117, name: '单层检测' }
+      ],
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      },
+      label: { color: '#9ca3af' }
+    }]
+  });
+
+  // 质量等级分布
+  const qualityGradeChart = echarts.init(document.getElementById('qualityGradeChart'));
+  qualityGradeChart.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+    xAxis: {
+      type: 'category',
+      data: ['A级', 'B级', 'C级', 'D级', '不合格'],
+      axisLabel: { color: '#9ca3af' }
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: { color: '#9ca3af' }
+    },
+    series: [{
+      data: [520, 380, 234, 78, 22],
+      type: 'bar',
+      itemStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: '#00a8ff' },
+          { offset: 1, color: '#0086cc' }
+        ])
+      }
+    }]
+  });
+
+  // 趋势图
+  const trendChart = echarts.init(document.getElementById('trendChart'));
+  const dates = Array.from({length: 30}, (_, i) => {
+    const d = new Date();
+    d.setDate(d.getDate() - 29 + i);
+    return `${d.getMonth() + 1}/${d.getDate()}`;
+  });
+  trendChart.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis' },
+    xAxis: {
+      type: 'category',
+      data: dates,
+      axisLabel: { color: '#9ca3af' }
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: { color: '#9ca3af' }
+    },
+    series: [{
+      data: Array.from({length: 30}, () => Math.floor(Math.random() * 50) + 20),
+      type: 'line',
+      smooth: true,
+      areaStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: 'rgba(0, 168, 255, 0.3)' },
+          { offset: 1, color: 'rgba(0, 168, 255, 0)' }
+        ])
+      },
+      lineStyle: { color: '#00a8ff' }
+    }]
+  });
+
+  // 缺陷统计
+  const defectChart = echarts.init(document.getElementById('defectChart'));
+  defectChart.setOption({
+    backgroundColor: 'transparent',
+    tooltip: { trigger: 'axis' },
+    xAxis: {
+      type: 'category',
+      data: ['裂纹', '气孔', '夹杂', '未熔合', '其他'],
+      axisLabel: { color: '#9ca3af' }
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: { color: '#9ca3af' }
+    },
+    series: [{
+      data: [35, 28, 15, 8, 3],
+      type: 'bar',
+      itemStyle: { color: '#ff6b35' }
+    }]
+  });
+
+  // 响应式调整
+  window.addEventListener('resize', () => {
+    detectionTypeChart.resize();
+    qualityGradeChart.resize();
+    trendChart.resize();
+    defectChart.resize();
+  });
+</script>
+

@@ -1,0 +1,276 @@
+---
+/**
+ * 文件管理页面
+ */
+import Layout from '@/layouts/Layout.astro';
+import { Header } from '@/components/layout/Header';
+---
+
+<Layout title="文件管理 - 超声数据管理系统">
+  <Header currentPath="/files" client:load />
+  
+  <main class="min-h-screen bg-primary-900 py-8">
+    <div class="container mx-auto px-4">
+      <!-- Page Header -->
+      <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center">
+        <div>
+          <h1 class="text-3xl font-bold text-white mb-2">文件管理</h1>
+          <p class="text-gray-400">上传、查看和管理超声检测数据文件</p>
+        </div>
+        <button id="uploadBtn" class="btn btn-primary mt-4 md:mt-0">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+          </svg>
+          上传文件
+        </button>
+      </div>
+
+      <!-- Upload Area (Hidden by default) -->
+      <div id="uploadArea" class="card mb-8 hidden">
+        <div class="border-2 border-dashed border-primary-600 rounded-lg p-12 text-center hover:border-secondary transition-colors">
+          <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v20c0 4.418 7.163 8 16 8 1.381 0 2.721-.087 4-.252M8 14c0 4.418 7.163 8 16 8s16-3.582 16-8M8 14c0-4.418 7.163-8 16-8s16 3.582 16 8m0 0v14m0-4c0 4.418-7.163 8-16 8S8 28.418 8 24m32 10v6m0 0v6m0-6h6m-6 0h-6" />
+          </svg>
+          <p class="mt-4 text-lg text-gray-300">拖拽CSV文件到此处，或</p>
+          <label class="mt-2 inline-block">
+            <span class="btn btn-secondary cursor-pointer">
+              选择文件
+            </span>
+            <input id="fileInput" type="file" accept=".csv" multiple class="hidden" />
+          </label>
+          <p class="mt-2 text-sm text-gray-400">支持CSV格式，单个文件最大500MB</p>
+        </div>
+
+        <!-- Upload Progress -->
+        <div id="uploadProgress" class="mt-6 hidden">
+          <h4 class="text-white font-medium mb-3">上传进度</h4>
+          <div class="space-y-3">
+            <!-- Progress items will be added here dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters and Search -->
+      <div class="card mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">检测类型</label>
+            <select class="input">
+              <option value="">全部类型</option>
+              <option value="weld">焊缝检测</option>
+              <option value="layered">分层检测</option>
+              <option value="slope">斜坡检测</option>
+              <option value="single_layer">单层检测</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">状态</label>
+            <select class="input">
+              <option value="">全部状态</option>
+              <option value="uploaded">已上传</option>
+              <option value="processing">处理中</option>
+              <option value="processed">已处理</option>
+              <option value="error">错误</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">日期范围</label>
+            <input type="date" class="input" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-300 mb-2">搜索</label>
+            <input type="text" placeholder="搜索文件名..." class="input" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Files Table -->
+      <div class="card">
+        <div class="overflow-x-auto">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>
+                  <input type="checkbox" class="rounded" />
+                </th>
+                <th>文件名</th>
+                <th>检测类型</th>
+                <th>文件大小</th>
+                <th>状态</th>
+                <th>帧数/波束数</th>
+                <th>上传时间</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="rounded" /></td>
+                <td class="font-medium">1-焊缝.csv</td>
+                <td><span class="badge badge-info">焊缝检测</span></td>
+                <td>25.4 MB</td>
+                <td><span class="badge badge-success">已处理</span></td>
+                <td>50 / 7</td>
+                <td>2025-10-03 14:30</td>
+                <td>
+                  <div class="flex space-x-2">
+                    <button class="text-secondary hover:text-secondary-400" title="查看">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                      </svg>
+                    </button>
+                    <button class="text-secondary hover:text-secondary-400" title="下载">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                      </svg>
+                    </button>
+                    <button class="text-danger hover:text-danger-400" title="删除">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="rounded" /></td>
+                <td class="font-medium">2-双层-3.csv</td>
+                <td><span class="badge badge-info">分层检测</span></td>
+                <td>23.1 MB</td>
+                <td><span class="badge badge-success">已处理</span></td>
+                <td>47 / 7</td>
+                <td>2025-10-03 12:15</td>
+                <td>
+                  <div class="flex space-x-2">
+                    <button class="text-secondary hover:text-secondary-400" title="查看">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                      </svg>
+                    </button>
+                    <button class="text-secondary hover:text-secondary-400" title="下载">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                      </svg>
+                    </button>
+                    <button class="text-danger hover:text-danger-400" title="删除">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="rounded" /></td>
+                <td class="font-medium">2-斜坡.csv</td>
+                <td><span class="badge badge-info">斜坡检测</span></td>
+                <td>28.0 MB</td>
+                <td><span class="badge badge-warning">处理中</span></td>
+                <td>52 / 7</td>
+                <td>2025-10-03 10:45</td>
+                <td>
+                  <div class="flex space-x-2">
+                    <button class="text-gray-500" disabled title="处理中">
+                      <svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="rounded" /></td>
+                <td class="font-medium">3-单层-1.csv</td>
+                <td><span class="badge badge-info">单层检测</span></td>
+                <td>21.7 MB</td>
+                <td><span class="badge badge-success">已处理</span></td>
+                <td>44 / 7</td>
+                <td>2025-10-02 16:20</td>
+                <td>
+                  <div class="flex space-x-2">
+                    <button class="text-secondary hover:text-secondary-400" title="查看">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                      </svg>
+                    </button>
+                    <button class="text-secondary hover:text-secondary-400" title="下载">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                      </svg>
+                    </button>
+                    <button class="text-danger hover:text-danger-400" title="删除">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-6 flex items-center justify-between border-t border-primary-700 pt-4">
+          <div class="text-sm text-gray-400">
+            显示 <span class="font-medium text-white">1-10</span> 共 <span class="font-medium text-white">234</span> 条
+          </div>
+          <div class="flex space-x-2">
+            <button class="px-3 py-2 bg-primary-700 text-gray-300 rounded hover:bg-primary-600">上一页</button>
+            <button class="px-3 py-2 bg-secondary text-white rounded">1</button>
+            <button class="px-3 py-2 bg-primary-700 text-gray-300 rounded hover:bg-primary-600">2</button>
+            <button class="px-3 py-2 bg-primary-700 text-gray-300 rounded hover:bg-primary-600">3</button>
+            <button class="px-3 py-2 bg-primary-700 text-gray-300 rounded hover:bg-primary-600">下一页</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // 文件上传功能
+  const uploadBtn = document.getElementById('uploadBtn');
+  const uploadArea = document.getElementById('uploadArea');
+  const fileInput = document.getElementById('fileInput');
+
+  uploadBtn?.addEventListener('click', () => {
+    uploadArea?.classList.toggle('hidden');
+  });
+
+  fileInput?.addEventListener('change', (e) => {
+    const target = e.target as HTMLInputElement;
+    const files = target.files;
+    if (files && files.length > 0) {
+      handleFiles(Array.from(files));
+    }
+  });
+
+  // 拖拽上传
+  uploadArea?.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadArea.classList.add('border-secondary');
+  });
+
+  uploadArea?.addEventListener('dragleave', () => {
+    uploadArea.classList.remove('border-secondary');
+  });
+
+  uploadArea?.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.classList.remove('border-secondary');
+    const files = e.dataTransfer?.files;
+    if (files && files.length > 0) {
+      handleFiles(Array.from(files));
+    }
+  });
+
+  function handleFiles(files: File[]) {
+    console.log('上传文件:', files);
+    // TODO: 实现文件上传逻辑
+    alert(`准备上传 ${files.length} 个文件`);
+  }
+</script>
+

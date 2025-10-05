@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath = '/' }) => {
               <span className="text-white text-xl font-bold">US</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gradient">超声数据管理系统</h1>
+              <div className="text-xl font-bold text-gradient">超声数据管理系统</div>
               <p className="text-xs text-gray-400">Ultrasonic Data Management System</p>
             </div>
           </div>

@@ -15,7 +15,7 @@ export type QualityGrade = 'A' | 'B' | 'C' | 'D' | 'reject';
 export interface Database {
   public: {
     Tables: {
-      users: {
+      ultrasonic_system_users: {
         Row: {
           id: string;
           email: string;
@@ -100,7 +100,7 @@ export interface Database {
           updated_at?: string;
         };
       };
-      detection_data: {
+      ultrasonic_detection_data: {
         Row: {
           id: string;
           file_id: string;
@@ -144,7 +144,7 @@ export interface Database {
           created_at?: string;
         };
       };
-      experiments: {
+      ultrasonic_experiments: {
         Row: {
           id: string;
           experiment_name: string;
@@ -194,7 +194,7 @@ export interface Database {
           updated_at?: string;
         };
       };
-      experiment_results: {
+      ultrasonic_experiment_results: {
         Row: {
           id: string;
           experiment_id: string;
@@ -238,7 +238,7 @@ export interface Database {
           updated_at?: string;
         };
       };
-      audit_logs: {
+      ultrasonic_audit_logs: {
         Row: {
           id: string;
           user_id: string | null;
@@ -317,10 +317,10 @@ export interface Database {
 }
 
 // 导出类型别名以便使用
-export type User = Database['public']['Tables']['users']['Row'];
+export type User = Database['public']['Tables']['ultrasonic_system_users']['Row'];
 export type UltrasonicFile = Database['public']['Tables']['ultrasonic_files']['Row'];
-export type DetectionData = Database['public']['Tables']['detection_data']['Row'];
-export type Experiment = Database['public']['Tables']['experiments']['Row'];
-export type ExperimentResult = Database['public']['Tables']['experiment_results']['Row'];
-export type AuditLog = Database['public']['Tables']['audit_logs']['Row'];
+export type DetectionData = Database['public']['Tables']['ultrasonic_detection_data']['Row'];
+export type Experiment = Database['public']['Tables']['ultrasonic_experiments']['Row'];
+export type ExperimentResult = Database['public']['Tables']['ultrasonic_experiment_results']['Row'];
+export type AuditLog = Database['public']['Tables']['ultrasonic_audit_logs']['Row'];
 

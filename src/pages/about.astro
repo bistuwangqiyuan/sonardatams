@@ -1,0 +1,148 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Header } from '@/components/layout/Header';
+---
+
+<Layout 
+  title="关于我们 | 超声数据管理系统"
+  description="超声数据管理系统致力于为超声检测行业提供专业、高效的数据管理解决方案，基于国际标准，服务全球用户。"
+  keywords="关于我们,超声检测,NDT,团队介绍,企业文化,联系方式"
+>
+  <Header currentPath="/about" client:load />
+  
+  <main class="container mx-auto px-4 py-12">
+    <!-- 面包屑 -->
+    <nav class="mb-8" aria-label="Breadcrumb">
+      <ol class="flex space-x-2 text-sm text-gray-400">
+        <li><a href="/" class="hover:text-primary-400">首页</a></li>
+        <li>/</li>
+        <li class="text-white">关于我们</li>
+      </ol>
+    </nav>
+    
+    <!-- 页面标题 -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        关于我们
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        致力于为超声检测行业提供专业、高效的数据管理解决方案
+      </p>
+    </div>
+    
+    <!-- 公司介绍 -->
+    <section class="mb-16">
+      <div class="card">
+        <h2 class="text-2xl font-bold text-white mb-6">公司简介</h2>
+        <div class="space-y-4 text-gray-300 leading-relaxed">
+          <p>
+            超声数据管理系统是一款基于国际标准（ISO 16810、ASTM E2700等）开发的现代化工业级超声检测数据管理平台。
+            我们致力于为无损检测行业提供专业、高效、易用的数据管理解决方案。
+          </p>
+          <p>
+            平台集成了数据采集、存储、分析、可视化于一体，支持焊缝检测、分层检测等多种检测类型，
+            为检测工程师、质量管理人员和技术研究人员提供强大的数据管理工具。
+          </p>
+          <p>
+            我们的目标是通过技术创新，提升超声检测数据管理的效率和准确性，
+            为工业检测的数字化转型贡献力量。
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 核心价值观 -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-white text-center mb-12">核心价值观</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card text-center">
+          <div class="text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-semibold text-white mb-3">专业专注</h3>
+          <p class="text-gray-300">
+            深耕超声检测领域，提供最专业的数据管理解决方案
+          </p>
+        </div>
+        <div class="card text-center">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="text-xl font-semibold text-white mb-3">技术创新</h3>
+          <p class="text-gray-300">
+            持续技术创新，引领行业数字化转型
+          </p>
+        </div>
+        <div class="card text-center">
+          <div class="text-4xl mb-4">🤝</div>
+          <h3 class="text-xl font-semibold text-white mb-3">用户至上</h3>
+          <p class="text-gray-300">
+            以用户需求为中心，提供优质服务体验
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 技术优势 -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-white text-center mb-12">技术优势</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card">
+          <h3 class="text-xl font-semibold text-white mb-3">✓ 符合国际标准</h3>
+          <p class="text-gray-300">
+            基于ISO 16810、ASTM E2700、ISO 13588、EN 16018等国际标准开发
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold text-white mb-3">✓ 先进技术栈</h3>
+          <p class="text-gray-300">
+            采用Astro + React + TypeScript + Supabase现代技术架构
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold text-white mb-3">✓ 专业可视化</h3>
+          <p class="text-gray-300">
+            支持A/B/C/S扫描多种模式，ECharts专业级图表展示
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold text-white mb-3">✓ 云端部署</h3>
+          <p class="text-gray-300">
+            基于云平台部署，数据安全可靠，随时随地访问
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 联系方式 -->
+    <section>
+      <div class="card bg-gradient-to-br from-primary-800 to-primary-900 text-center">
+        <h2 class="text-3xl font-bold text-white mb-6">联系我们</h2>
+        <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+          如果您对我们的产品感兴趣，或有任何问题和建议，欢迎与我们联系
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/support" class="btn-primary">
+            💬 联系支持
+          </a>
+          <a href="/docs" class="btn-secondary">
+            📚 查看文档
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- 结构化数据 -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "超声数据管理系统",
+    "description": "专业的超声检测数据管理平台",
+    "url": "https://sonardatams.netlify.app",
+    "logo": "https://sonardatams.netlify.app/logo.png",
+    "foundingDate": "2025",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "availableLanguage": ["Chinese"]
+    }
+  })} />
+</Layout>
+

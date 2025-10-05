@@ -1,0 +1,193 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Header } from '@/components/layout/Header';
+---
+
+<Layout 
+  title="联系支持 | 超声数据管理系统"
+  description="获取超声数据管理系统的技术支持，包括在线咨询、邮件支持、电话支持等多种联系方式。"
+  keywords="技术支持,联系我们,客服,帮助中心,在线咨询"
+>
+  <Header currentPath="/support" client:load />
+  
+  <main class="container mx-auto px-4 py-12">
+    <!-- 面包屑 -->
+    <nav class="mb-8" aria-label="Breadcrumb">
+      <ol class="flex space-x-2 text-sm text-gray-400">
+        <li><a href="/" class="hover:text-primary-400">首页</a></li>
+        <li>/</li>
+        <li class="text-white">联系支持</li>
+      </ol>
+    </nav>
+    
+    <!-- 页面标题 -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        联系支持
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        我们随时准备为您提供帮助和支持
+      </p>
+    </div>
+    
+    <!-- 支持方式 -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-white text-center mb-12">联系方式</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card text-center">
+          <div class="text-4xl mb-4">📧</div>
+          <h3 class="text-xl font-semibold text-white mb-3">邮件支持</h3>
+          <p class="text-gray-300 mb-4">
+            工作时间通常在24小时内回复
+          </p>
+          <a href="mailto:support@example.com" class="text-primary-400 hover:text-primary-300">
+            support@example.com
+          </a>
+        </div>
+        
+        <div class="card text-center">
+          <div class="text-4xl mb-4">💬</div>
+          <h3 class="text-xl font-semibold text-white mb-3">在线咨询</h3>
+          <p class="text-gray-300 mb-4">
+            工作日9:00-18:00在线服务
+          </p>
+          <button class="btn-primary" onclick="alert('在线客服即将开放')">
+            开始咨询
+          </button>
+        </div>
+        
+        <div class="card text-center">
+          <div class="text-4xl mb-4">📞</div>
+          <h3 class="text-xl font-semibold text-white mb-3">电话支持</h3>
+          <p class="text-gray-300 mb-4">
+            工作日9:00-18:00
+          </p>
+          <a href="tel:400-xxx-xxxx" class="text-primary-400 hover:text-primary-300">
+            400-XXX-XXXX
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 在线表单 -->
+    <section class="mb-16">
+      <div class="max-w-2xl mx-auto">
+        <div class="card">
+          <h2 class="text-2xl font-bold text-white mb-6">发送消息</h2>
+          <form class="space-y-6" onsubmit="event.preventDefault(); alert('感谢您的反馈！');">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-300 mb-2">
+                姓名 *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="input"
+                placeholder="请输入您的姓名"
+              />
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
+                邮箱 *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="input"
+                placeholder="your@email.com"
+              />
+            </div>
+            
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">
+                主题 *
+              </label>
+              <select id="subject" name="subject" required class="select">
+                <option value="">请选择主题</option>
+                <option value="technical">技术支持</option>
+                <option value="feature">功能咨询</option>
+                <option value="bug">问题反馈</option>
+                <option value="suggestion">建议反馈</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-300 mb-2">
+                消息内容 *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="6"
+                class="input"
+                placeholder="请详细描述您的问题或建议..."
+              ></textarea>
+            </div>
+            
+            <div>
+              <button type="submit" class="btn-primary w-full">
+                发送消息
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 常见问题 -->
+    <section class="mb-16">
+      <div class="card">
+        <h2 class="text-2xl font-bold text-white mb-6">在联系我们之前</h2>
+        <p class="text-gray-300 mb-4">
+          您可能想查看以下资源，或许能更快地找到答案：
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a href="/docs" class="p-4 rounded bg-primary-800 hover:bg-primary-700 transition-colors">
+            <div class="font-semibold text-white mb-2">📚 使用文档</div>
+            <div class="text-sm text-gray-300">详细的功能说明和使用指南</div>
+          </a>
+          <a href="/docs#faq" class="p-4 rounded bg-primary-800 hover:bg-primary-700 transition-colors">
+            <div class="font-semibold text-white mb-2">❓ 常见问题</div>
+            <div class="text-sm text-gray-300">查看最常被问到的问题</div>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 工作时间 -->
+    <section>
+      <div class="card bg-gradient-to-br from-primary-800 to-primary-900">
+        <h2 class="text-2xl font-bold text-white mb-6">工作时间</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300">
+          <div>
+            <div class="font-semibold text-white mb-2">技术支持</div>
+            <div>周一至周五：9:00 - 18:00</div>
+            <div>周六至周日：休息</div>
+          </div>
+          <div>
+            <div class="font-semibold text-white mb-2">响应时间</div>
+            <div>邮件：24小时内</div>
+            <div>电话：即时响应</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- 结构化数据 -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "联系支持",
+    "description": "超声数据管理系统技术支持联系方式",
+    "url": "https://sonardatams.netlify.app/support"
+  })} />
+</Layout>
+

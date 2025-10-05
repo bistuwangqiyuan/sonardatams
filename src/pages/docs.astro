@@ -1,0 +1,199 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Header } from '@/components/layout/Header';
+---
+
+<Layout 
+  title="使用文档 | 超声数据管理系统"
+  description="超声数据管理系统完整使用文档，包括快速开始、功能说明、API文档、常见问题等，帮助您快速上手使用。"
+  keywords="使用文档,帮助中心,教程,API文档,快速开始,使用指南"
+>
+  <Header currentPath="/docs" client:load />
+  
+  <main class="container mx-auto px-4 py-12">
+    <!-- 面包屑 -->
+    <nav class="mb-8" aria-label="Breadcrumb">
+      <ol class="flex space-x-2 text-sm text-gray-400">
+        <li><a href="/" class="hover:text-primary-400">首页</a></li>
+        <li>/</li>
+        <li class="text-white">使用文档</li>
+      </ol>
+    </nav>
+    
+    <!-- 页面标题 -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        使用文档
+      </h1>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        详细的使用指南，帮助您快速上手超声数据管理系统
+      </p>
+    </div>
+    
+    <!-- 快速开始 -->
+    <section class="mb-16">
+      <div class="card">
+        <h2 class="text-2xl font-bold text-white mb-6">🚀 快速开始</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-lg font-semibold text-primary-400 mb-2">1. 访问系统</h3>
+            <p class="text-gray-300">打开浏览器访问 https://sonardatams.netlify.app</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary-400 mb-2">2. 无需注册</h3>
+            <p class="text-gray-300">系统支持游客模式，所有功能无需注册即可使用</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary-400 mb-2">3. 上传文件</h3>
+            <p class="text-gray-300">点击"文件管理"，上传CSV格式的超声检测数据</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-primary-400 mb-2">4. 查看数据</h3>
+            <p class="text-gray-300">在"数据大屏"查看统计信息，在"超声图像"查看可视化结果</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 核心功能 -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-white text-center mb-12">核心功能</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card">
+          <div class="text-3xl mb-3">📊</div>
+          <h3 class="text-xl font-semibold text-white mb-3">数据大屏</h3>
+          <p class="text-gray-300 mb-4">
+            实时监控检测数据，多维度统计分析，支持4K大屏展示
+          </p>
+          <a href="/dashboard" class="text-primary-400 hover:text-primary-300">
+            查看功能 →
+          </a>
+        </div>
+        
+        <div class="card">
+          <div class="text-3xl mb-3">📁</div>
+          <h3 class="text-xl font-semibold text-white mb-3">文件管理</h3>
+          <p class="text-gray-300 mb-4">
+            CSV文件上传解析，批量处理，完整元数据管理
+          </p>
+          <a href="/files" class="text-primary-400 hover:text-primary-300">
+            查看功能 →
+          </a>
+        </div>
+        
+        <div class="card">
+          <div class="text-3xl mb-3">🖼️</div>
+          <h3 class="text-xl font-semibold text-white mb-3">超声图像</h3>
+          <p class="text-gray-300 mb-4">
+            A/B/C/S扫描多种模式，交互式图像操作，专业可视化
+          </p>
+          <a href="/ultrasonic" class="text-primary-400 hover:text-primary-300">
+            查看功能 →
+          </a>
+        </div>
+        
+        <div class="card">
+          <div class="text-3xl mb-3">🔬</div>
+          <h3 class="text-xl font-semibold text-white mb-3">试验管理</h3>
+          <p class="text-gray-300 mb-4">
+            标准化试验流程，自动报告生成，质量评级系统
+          </p>
+          <a href="/experiments" class="text-primary-400 hover:text-primary-300">
+            查看功能 →
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 支持的文件格式 -->
+    <section class="mb-16">
+      <div class="card">
+        <h2 class="text-2xl font-bold text-white mb-6">📄 支持的文件格式</h2>
+        <div class="space-y-4 text-gray-300">
+          <p><strong>CSV格式要求：</strong></p>
+          <ul class="list-disc list-inside space-y-2 ml-4">
+            <li>文件扩展名：.csv</li>
+            <li>编码格式：UTF-8</li>
+            <li>必需字段：FrameID, BeamID, Position1-896</li>
+            <li>文件大小：最大500MB</li>
+          </ul>
+          <p class="mt-4"><strong>示例格式：</strong></p>
+          <pre class="bg-primary-900 p-4 rounded overflow-x-auto text-sm">
+FrameID,BeamID,Position1,Position2,Position3,...
+0,0,123,456,789,...
+0,1,234,567,890,...
+1,0,345,678,901,...
+          </pre>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 常见问题 -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-white text-center mb-12">常见问题</h2>
+      <div class="space-y-4">
+        <details class="card">
+          <summary class="text-lg font-semibold text-white cursor-pointer">
+            Q: 为什么不需要注册？
+          </summary>
+          <p class="text-gray-300 mt-4">
+            A: 系统支持游客模式，您可以无需注册即可使用所有功能。如果需要个性化体验，可以选择注册登录。
+          </p>
+        </details>
+        
+        <details class="card">
+          <summary class="text-lg font-semibold text-white cursor-pointer">
+            Q: 上传的文件会保存多久？
+          </summary>
+          <p class="text-gray-300 mt-4">
+            A: 文件会永久保存在云端，除非手动删除。
+          </p>
+        </details>
+        
+        <details class="card">
+          <summary class="text-lg font-semibold text-white cursor-pointer">
+            Q: 支持哪些检测类型？
+          </summary>
+          <p class="text-gray-300 mt-4">
+            A: 支持焊缝检测、分层检测、斜坡检测、单层检测等多种类型。
+          </p>
+        </details>
+        
+        <details class="card">
+          <summary class="text-lg font-semibold text-white cursor-pointer">
+            Q: 数据安全吗？
+          </summary>
+          <p class="text-gray-300 mt-4">
+            A: 系统使用Supabase Row Level Security (RLS)保护数据，采用HTTPS加密传输，数据安全可靠。
+          </p>
+        </details>
+      </div>
+    </section>
+    
+    <!-- 更多帮助 -->
+    <section>
+      <div class="card bg-gradient-to-br from-primary-800 to-primary-900 text-center">
+        <h2 class="text-3xl font-bold text-white mb-6">需要更多帮助？</h2>
+        <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+          如果您有任何问题或建议，欢迎联系我们的技术支持团队
+        </p>
+        <a href="/support" class="btn-primary inline-block">
+          💬 联系支持
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <!-- 结构化数据 -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "超声数据管理系统使用文档",
+    "description": "完整的使用指南和API文档",
+    "author": {
+      "@type": "Organization",
+      "name": "超声数据管理系统团队"
+    }
+  })} />
+</Layout>
+

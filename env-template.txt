@@ -1,0 +1,25 @@
+# Supabase配置
+# 从 https://supabase.com/dashboard 获取你的项目配置
+# 复制此文件为 .env 并填入实际配置
+
+# Supabase项目URL
+PUBLIC_SUPABASE_URL=https://zzyueuweeoakopuuwfau.supabase.co
+
+# Supabase匿名密钥（公开密钥）
+PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp6eXVldXdlZW9ha29wdXV3ZmF1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzODEzMDEsImV4cCI6MjA1OTk1NzMwMX0.y8V3EXK9QVd3txSWdE3gZrSs96Ao0nvpnd0ntZw_dQ4
+
+# Supabase服务角色密钥（私密密钥，仅用于服务端）
+# ⚠️ 警告：请勿将此密钥暴露在客户端代码中！
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp6eXVldXdlZW9ha29wdXV3ZmF1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDM4MTMwMSwiZXhwIjoyMDU5OTU3MzAxfQ.CTLF9Ahmxt7alyiv-sf_Gl3U6SNIWZ01PapTI92Hg0g
+
+# 应用配置
+PUBLIC_APP_URL=http://localhost:4321
+PUBLIC_APP_NAME=超声数据管理系统
+
+# 文件上传配置
+PUBLIC_MAX_FILE_SIZE=524288000
+PUBLIC_ALLOWED_FILE_TYPES=text/csv,application/vnd.ms-excel
+
+# 环境标识
+NODE_ENV=development
+

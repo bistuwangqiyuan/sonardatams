@@ -1,0 +1,34 @@
+# robots.txt for 超声数据管理系统
+# https://sonardatams.netlify.app
+
+User-agent: *
+Allow: /
+
+# 禁止爬取敏感目录
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_astro/
+
+# 禁止爬取文件类型
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# Sitemap位置
+Sitemap: https://sonardatams.netlify.app/sitemap.xml
+
+# 爬取延迟（秒）
+Crawl-delay: 1
+
+# 特定搜索引擎规则
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+

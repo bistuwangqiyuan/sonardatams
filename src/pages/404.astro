@@ -1,0 +1,98 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Header } from '@/components/layout/Header';
+---
+
+<Layout 
+  title="页面未找到 - 404 | 超声数据管理系统"
+  description="抱歉，您访问的页面不存在或已被移除。请返回首页或查看其他页面。"
+>
+  <Header currentPath="/404" client:load />
+  
+  <main class="container mx-auto px-4 py-16">
+    <div class="max-w-2xl mx-auto text-center">
+      <!-- 404图标 -->
+      <div class="mb-8">
+        <div class="text-9xl font-bold text-primary-500 mb-4">404</div>
+        <div class="text-6xl mb-4">🔍</div>
+      </div>
+      
+      <!-- 标题和描述 -->
+      <h1 class="text-4xl font-bold text-white mb-4">
+        页面未找到
+      </h1>
+      <p class="text-xl text-gray-300 mb-8">
+        抱歉，您访问的页面不存在或已被移除。
+      </p>
+      
+      <!-- 可能的原因 -->
+      <div class="card text-left mb-8">
+        <h2 class="text-xl font-semibold text-white mb-4">可能的原因：</h2>
+        <ul class="space-y-2 text-gray-300">
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>页面链接已过期或被删除</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>URL地址输入错误</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>页面正在维护中</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-2">•</span>
+            <span>您没有访问该页面的权限</span>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- 操作按钮 -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <a href="/" class="btn-primary">
+          🏠 返回首页
+        </a>
+        <a href="/dashboard" class="btn-secondary">
+          📊 查看数据大屏
+        </a>
+        <a href="/files" class="btn-secondary">
+          📁 文件管理
+        </a>
+      </div>
+      
+      <!-- 搜索建议 -->
+      <div class="card">
+        <h2 class="text-xl font-semibold text-white mb-4">您可能在寻找：</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+          <a href="/dashboard" class="p-4 rounded bg-primary-800 hover:bg-primary-700 transition-colors">
+            <div class="text-primary-400 mb-2">📊 数据大屏</div>
+            <div class="text-sm text-gray-300">实时监控检测数据</div>
+          </a>
+          <a href="/files" class="p-4 rounded bg-primary-800 hover:bg-primary-700 transition-colors">
+            <div class="text-primary-400 mb-2">📁 文件管理</div>
+            <div class="text-sm text-gray-300">上传和管理CSV文件</div>
+          </a>
+          <a href="/ultrasonic" class="p-4 rounded bg-primary-800 hover:bg-primary-700 transition-colors">
+            <div class="text-primary-400 mb-2">🖼️ 超声图像</div>
+            <div class="text-sm text-gray-300">A/B/C/S扫描可视化</div>
+          </a>
+          <a href="/experiments" class="p-4 rounded bg-primary-800 hover:bg-primary-700 transition-colors">
+            <div class="text-primary-400 mb-2">🔬 试验管理</div>
+            <div class="text-sm text-gray-300">标准化试验流程</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- 结构化数据 -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "404 - 页面未找到",
+    "description": "您访问的页面不存在",
+    "url": "https://sonardatams.netlify.app/404"
+  })} />
+</Layout>
+

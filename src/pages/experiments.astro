@@ -6,7 +6,11 @@ import Layout from '@/layouts/Layout.astro';
 import { Header } from '@/components/layout/Header';
 ---
 
-<Layout title="试验管理 - 超声数据管理系统">
+<Layout 
+  title="试验管理 - 标准化检测流程 | 超声数据管理系统"
+  description="超声检测试验管理系统提供标准化试验流程、自动报告生成、质量评级系统。支持焊缝检测、分层检测、斜坡检测等多种试验类型，符合ISO 16810、ASTM E2700国际标准。"
+  keywords="试验管理,检测流程,报告生成,质量评级,焊缝检测,分层检测,ISO标准,ASTM标准"
+>
   <Header currentPath="/experiments" client:load />
   
   <main class="min-h-screen bg-primary-900 py-8">

@@ -1,0 +1,64 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00a8ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(0,168,255,0.1)" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Main Content -->
+  <g>
+    <!-- Icon/Logo Area -->
+    <circle cx="150" cy="200" r="60" fill="rgba(0,168,255,0.2)" stroke="#00a8ff" stroke-width="3"/>
+    <text x="150" y="220" font-family="Arial, sans-serif" font-size="60" fill="#00a8ff" text-anchor="middle">📊</text>
+    
+    <!-- Title -->
+    <text x="250" y="180" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="white">
+      超声数据实验数据管理系统
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="250" y="240" font-family="Arial, sans-serif" font-size="32" fill="url(#textGradient)">
+      基于国际标准的现代化工业级超声检测平台
+    </text>
+    
+    <!-- Features -->
+    <g transform="translate(250, 300)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="24" fill="#94a3b8">
+        ✓ ISO 16810 • ASTM E2700 国际标准
+      </text>
+      <text x="0" y="40" font-family="Arial, sans-serif" font-size="24" fill="#94a3b8">
+        ✓ A/B/C/S 扫描多模式可视化
+      </text>
+      <text x="0" y="80" font-family="Arial, sans-serif" font-size="24" fill="#94a3b8">
+        ✓ 实时数据展示 • 智能分析
+      </text>
+    </g>
+    
+    <!-- Bottom Badge -->
+    <rect x="250" y="500" width="700" height="60" rx="30" fill="rgba(0,168,255,0.2)" stroke="#00a8ff" stroke-width="2"/>
+    <text x="600" y="540" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white" text-anchor="middle">
+      专业 • 安全 • 高效
+    </text>
+  </g>
+  
+  <!-- URL -->
+  <text x="1150" y="610" font-family="Arial, sans-serif" font-size="20" fill="#64748b" text-anchor="end">
+    sonardatams.netlify.app
+  </text>
+</svg>

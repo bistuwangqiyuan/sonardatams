@@ -6,7 +6,11 @@ import Layout from '@/layouts/Layout.astro';
 import { Header } from '@/components/layout/Header';
 ---
 
-<Layout title="超声图像 - 超声数据管理系统">
+<Layout 
+  title="超声图像展示 - A/B/C/S扫描可视化 | 超声数据管理系统"
+  description="专业的超声图像展示系统，支持A扫描（时间-幅度曲线）、B扫描（深度-位置截面图）、C扫描（平面投影图）、S扫描（扇形扫描图）多种显示模式。提供交互式图像操作、伪彩色映射、缺陷标注测量等功能。"
+  keywords="超声图像,A扫描,B扫描,C扫描,S扫描,相控阵,图像可视化,缺陷检测,伪彩色映射"
+>
   <Header currentPath="/ultrasonic" client:load />
   
   <main class="min-h-screen bg-primary-900 py-8">

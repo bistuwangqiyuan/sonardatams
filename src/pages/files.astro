@@ -6,7 +6,11 @@ import Layout from '@/layouts/Layout.astro';
 import { Header } from '@/components/layout/Header';
 ---
 
-<Layout title="文件管理 - 超声数据管理系统">
+<Layout 
+  title="文件管理 - CSV数据上传解析 | 超声数据管理系统"
+  description="超声检测数据文件管理系统支持CSV文件上传、批量处理、智能数据验证、完整元数据管理、历史版本追溯等功能。兼容多种超声检测设备数据格式。"
+  keywords="文件管理,CSV上传,数据解析,批量处理,元数据管理,版本追溯,超声检测,数据导入"
+>
   <Header currentPath="/files" client:load />
   
   <main class="min-h-screen bg-primary-900 py-8">

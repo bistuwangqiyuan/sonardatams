@@ -11,9 +11,9 @@ interface Props {
 
 const { 
   title, 
-  description = '超声数据实验数据管理系统是一个基于ISO 16810和ASTM E2700标准的现代化工业级超声检测数据管理平台，提供数据展示大屏、文件管理、A/B/C/S扫描可视化、试验管理等专业功能，支持焊缝检测、分层检测等多种检测类型。',
-  keywords = '超声检测,相控阵检测,无损检测,超声数据管理,NDT,焊缝检测,分层检测,ISO 16810,ASTM E2700,数据可视化',
-  ogImage = '/og-image.jpg',
+  description = '超声数据实验数据管理系统是一个基于ISO 16810、ASTM E2700、ISO 13588、EN 16018国际标准的现代化工业级超声检测数据管理平台。系统提供实时数据展示大屏、CSV文件管理、A/B/C/S扫描多模式可视化、标准化试验管理等专业功能，支持焊缝检测、分层检测、斜坡检测等多种检测类型，适用于无损检测实验室、工业检测、教学培训和科研领域。',
+  keywords = '超声检测,相控阵检测,无损检测,超声数据管理,NDT,焊缝检测,分层检测,ISO 16810,ASTM E2700,ISO 13588,EN 16018,数据可视化,A扫描,B扫描,C扫描,S扫描,工业检测,实验室管理',
+  ogImage = '/og-image.svg',
   canonical
 } = Astro.props;
 
@@ -76,6 +76,11 @@ const fullOgImage = new URL(ogImage, siteUrl).toString();
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="format-detection" content="telephone=no" />
     
+    <!-- DNS Prefetch for Performance -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    
     <!-- Fonts with Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -84,6 +89,9 @@ const fullOgImage = new URL(ogImage, siteUrl).toString();
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     </noscript>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={JSON.stringify({

@@ -6,7 +6,11 @@ import Layout from '@/layouts/Layout.astro';
 import { Header } from '@/components/layout/Header';
 ---
 
-<Layout title="数据大屏 - 超声数据管理系统">
+<Layout 
+  title="数据展示大屏 - 实时监控超声检测数据 | 超声数据管理系统"
+  description="超声检测数据展示大屏提供实时数据监控、多维度统计分析、缺陷趋势分析、设备状态监控等功能。支持4K大屏展示，适用于工业检测现场、实验室监控中心等场景。"
+  keywords="数据大屏,实时监控,统计分析,缺陷分析,设备监控,4K大屏,超声检测,数据可视化"
+>
   <Header currentPath="/dashboard" client:load />
   
   <main class="min-h-screen bg-primary-900 py-8">

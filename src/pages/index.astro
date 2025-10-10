@@ -12,13 +12,15 @@ import { Header } from '@/components/layout/Header';
       <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-            <span class="text-gradient">超声数据</span><br />
-            <span class="text-white">实验数据管理系统</span>
+          <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in text-white">
+            超声数据实验数据管理系统
           </h1>
+          <p class="text-2xl md:text-3xl font-semibold mb-4 animate-fade-in">
+            <span class="text-gradient">基于国际标准的现代化工业级超声检测平台</span>
+          </p>
           <p class="text-xl text-gray-300 mb-8 animate-slide-in">
-            基于国际标准的现代化、工业级超声检测数据管理平台<br />
-            ISO 16810 • ASTM E2700 • ISO 13588 • EN 16018
+            符合ISO 16810、ASTM E2700、ISO 13588、EN 16018标准<br />
+            提供数据展示大屏、文件管理、A/B/C/S扫描可视化、试验管理等专业功能
           </p>
           <div class="flex flex-wrap justify-center gap-4 animate-slide-in">
             <a href="/dashboard" class="btn btn-primary text-lg px-8 py-3">
@@ -165,12 +167,121 @@ import { Header } from '@/components/layout/Header';
       </div>
     </section>
 
+    <!-- Use Cases Section -->
+    <section class="py-20 bg-primary-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">应用场景</h2>
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div class="card">
+            <h3 class="text-xl font-bold mb-4 text-secondary">🏭 工业检测</h3>
+            <p class="text-gray-400 mb-4">
+              适用于石油化工、航空航天、核电、船舶等行业的焊缝质量检测、压力容器检测、管道检测等场景。支持大批量数据处理和实时监控，提高检测效率和准确性。
+            </p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li>✓ 压力容器焊缝检测</li>
+              <li>✓ 管道对接焊缝检测</li>
+              <li>✓ 航空复合材料检测</li>
+              <li>✓ 核电设备质量控制</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="text-xl font-bold mb-4 text-secondary">🔬 实验室研究</h3>
+            <p class="text-gray-400 mb-4">
+              为无损检测实验室提供专业的数据管理和分析工具，支持科研项目数据归档、试验报告生成、数据可视化分析等功能，符合ISO国际标准要求。
+            </p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li>✓ 科研项目数据管理</li>
+              <li>✓ 试验报告自动生成</li>
+              <li>✓ 数据统计分析</li>
+              <li>✓ 历史数据追溯</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="text-xl font-bold mb-4 text-secondary">🎓 教学培训</h3>
+            <p class="text-gray-400 mb-4">
+              为无损检测培训机构和高校提供教学演示平台，学生可以通过真实的检测数据学习A/B/C/S扫描原理、缺陷识别技术、数据分析方法等专业知识。
+            </p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li>✓ 可视化教学演示</li>
+              <li>✓ 真实案例分析</li>
+              <li>✓ 学生实训平台</li>
+              <li>✓ 考核评估系统</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="text-xl font-bold mb-4 text-secondary">📊 质量管理</h3>
+            <p class="text-gray-400 mb-4">
+              帮助企业建立完善的质量管理体系，实现检测数据的集中存储、权限管理、审计追溯等功能，满足ISO 9001质量管理体系认证要求。
+            </p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li>✓ 数据集中管理</li>
+              <li>✓ 多级权限控制</li>
+              <li>✓ 完整审计日志</li>
+              <li>✓ 质量追溯体系</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Advantages Section -->
+    <section class="py-20 bg-primary-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">技术优势</h2>
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div class="card text-center">
+            <div class="text-4xl mb-4">⚡</div>
+            <h3 class="text-lg font-bold mb-2 text-white">高性能处理</h3>
+            <p class="text-sm text-gray-400">
+              采用现代化Web技术栈，支持大规模数据处理，单次可处理896个数据点，响应速度快，用户体验流畅。
+            </p>
+          </div>
+          <div class="card text-center">
+            <div class="text-4xl mb-4">🔒</div>
+            <h3 class="text-lg font-bold mb-2 text-white">数据安全</h3>
+            <p class="text-sm text-gray-400">
+              采用行级安全策略（RLS），数据加密传输和存储，多级权限控制，完整审计日志，确保数据安全可靠。
+            </p>
+          </div>
+          <div class="card text-center">
+            <div class="text-4xl mb-4">📱</div>
+            <h3 class="text-lg font-bold mb-2 text-white">响应式设计</h3>
+            <p class="text-sm text-gray-400">
+              完美支持PC、平板、手机等多种设备，自适应4K大屏展示，随时随地访问和管理检测数据。
+            </p>
+          </div>
+          <div class="card text-center">
+            <div class="text-4xl mb-4">🎨</div>
+            <h3 class="text-lg font-bold mb-2 text-white">专业可视化</h3>
+            <p class="text-sm text-gray-400">
+              基于ECharts和D3.js的专业数据可视化，支持A/B/C/S扫描多种显示模式，伪彩色映射，交互式操作。
+            </p>
+          </div>
+          <div class="card text-center">
+            <div class="text-4xl mb-4">🔄</div>
+            <h3 class="text-lg font-bold mb-2 text-white">实时同步</h3>
+            <p class="text-sm text-gray-400">
+              基于Supabase实时数据库，支持多用户协同工作，数据实时同步更新，团队协作更高效。
+            </p>
+          </div>
+          <div class="card text-center">
+            <div class="text-4xl mb-4">📦</div>
+            <h3 class="text-lg font-bold mb-2 text-white">开箱即用</h3>
+            <p class="text-sm text-gray-400">
+              无需安装，基于Web浏览器访问，支持CSV文件导入导出，与现有检测设备无缝集成。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-20 bg-gradient-to-br from-secondary via-secondary-600 to-accent">
       <div class="container mx-auto px-4 text-center">
         <h2 class="text-4xl font-bold mb-6 text-white">立即开始使用</h2>
         <p class="text-xl text-white/90 mb-8">
-          专业的超声检测数据管理，从这里开始
+          专业的超声检测数据管理，从这里开始<br />
+          免费使用，无需注册，支持游客模式体验
         </p>
         <div class="flex flex-wrap justify-center gap-4">
           <a href="/files" class="btn bg-white text-secondary hover:bg-gray-100 text-lg px-8 py-3">

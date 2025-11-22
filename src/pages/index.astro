@@ -1,9 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { Header } from '@/components/layout/Header';
+
+const title = "超声数据管理系统 - 工业级超声检测数据管理平台";
+const description = "超声数据管理系统是基于ISO 16810、ASTM E2700国际标准的现代化工业级超声检测数据管理平台。提供实时数据展示大屏、CSV文件管理、A/B/C/S扫描多模式可视化、标准化试验管理等专业功能。支持焊缝检测、分层检测、斜坡检测等多种NDT无损检测应用，适用于工业检测实验室、质量控制、教学培训和科研领域。";
+const keywords = "超声检测,超声数据管理系统,相控阵检测,无损检测,NDT,焊缝检测,分层检测,ISO 16810,ASTM E2700,A扫描,B扫描,C扫描,S扫描,工业检测,实验室管理,超声相控阵,phased array,超声波检测,材料检测,质量控制";
 ---
 
-<Layout title="超声数据管理系统 - 首页">
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+>
   <Header currentPath="/" client:load />
   
   <main class="min-h-screen">

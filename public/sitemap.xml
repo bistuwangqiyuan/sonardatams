@@ -4,85 +4,76 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   
-  <!-- 首页 -->
+  <!-- 首页 - 最高优先级 -->
   <url>
     <loc>https://sonardatams.netlify.app/</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- 数据大屏 -->
+  <!-- 数据大屏 - 核心功能页面 -->
   <url>
     <loc>https://sonardatams.netlify.app/dashboard</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- 文件管理 -->
+  <!-- 文件管理 - 核心功能页面 -->
   <url>
     <loc>https://sonardatams.netlify.app/files</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- 超声图像 -->
+  <!-- 超声图展示 - 核心功能页面 -->
   <url>
     <loc>https://sonardatams.netlify.app/ultrasonic</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- 试验管理 -->
+  <!-- 试验管理 - 核心功能页面 -->
   <url>
     <loc>https://sonardatams.netlify.app/experiments</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- 关于我们 -->
+  <!-- 关于我们 - 次要页面 -->
   <url>
     <loc>https://sonardatams.netlify.app/about</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- 使用文档 -->
+  <!-- 文档中心 - 次要页面 -->
   <url>
     <loc>https://sonardatams.netlify.app/docs</loc>
-    <lastmod>2025-10-05</lastmod>
+    <lastmod>2025-10-10</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- 联系支持 -->
-  <url>
-    <loc>https://sonardatams.netlify.app/support</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- 隐私政策 -->
+  <!-- 技术支持 - 次要页面 -->
+  <url>
+    <loc>https://sonardatams.netlify.app/support</loc>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- 隐私政策 - 法律页面 -->
   <url>
     <loc>https://sonardatams.netlify.app/privacy</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>yearly</changefreq>
+    <lastmod>2025-10-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
-  <!-- 404页面 -->
-  <url>
-    <loc>https://sonardatams.netlify.app/404</loc>
-    <lastmod>2025-10-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
-  </url>
-  
 </urlset>
-

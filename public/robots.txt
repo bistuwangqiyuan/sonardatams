@@ -1,34 +1,63 @@
 # robots.txt for 超声数据管理系统
 # https://sonardatams.netlify.app
+# 最后更新: 2025-10-10
 
+# 允许所有搜索引擎爬取
 User-agent: *
 Allow: /
 
-# 禁止爬取敏感目录
-Disallow: /admin/
+# 禁止爬取的目录
 Disallow: /api/
 Disallow: /_astro/
+Disallow: /admin/
 
-# 禁止爬取文件类型
-Disallow: /*.json$
-Disallow: /*.xml$
+# 允许爬取所有页面
+Allow: /dashboard
+Allow: /files
+Allow: /ultrasonic
+Allow: /experiments
+Allow: /about
+Allow: /docs
+Allow: /support
+Allow: /privacy
 
-# Sitemap位置
+# Sitemap位置（主站点地图）
 Sitemap: https://sonardatams.netlify.app/sitemap.xml
 
-# 爬取延迟（秒）
+# 爬取延迟设置（秒）
 Crawl-delay: 1
 
-# 特定搜索引擎规则
+# Google搜索引擎特定规则
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
+Disallow: /api/
+Disallow: /_astro/
 
+# Google图片爬虫
+User-agent: Googlebot-Image
+Allow: /
+Allow: /*.svg
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+
+# Bing搜索引擎特定规则
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
+# 百度搜索引擎特定规则
 User-agent: Baiduspider
 Allow: /
 Crawl-delay: 2
 
+# 搜狗搜索引擎
+User-agent: Sogou web spider
+Allow: /
+Crawl-delay: 2
+
+# 360搜索引擎
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 2
